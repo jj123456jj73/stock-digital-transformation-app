@@ -25,3 +25,4 @@ if data is not None:
     company = st.selectbox("选择公司", data["公司名称"].unique())
     filtered_data = data[data["公司名称"] == company]
     st.dataframe(filtered_data, use_container_width=True)
+
