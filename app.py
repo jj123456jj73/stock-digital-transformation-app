@@ -31,19 +31,19 @@ def main():
     st.dataframe(data, use_container_width=True)
     st.write(f"数据规模：{data.shape[0]} 行 × {data.shape[1]} 列")
 
-    # 按公司筛选功能
-    st.subheader("🔍 按公司名称筛选")
-    if "公司名称" in data.columns:
-        company_list = sorted(data["公司名称"].unique())
+    # 按企业名称筛选功能（适配你的数据列名）
+    st.subheader("🔍 按企业名称筛选")
+    if "企业名称" in data.columns:
+        company_list = sorted(data["企业名称"].unique())
         selected_company = st.selectbox(
-            "选择目标公司",
+            "选择目标企业",
             options=company_list,
             index=0
         )
-        filtered_data = data[data["公司名称"] == selected_company]
+        filtered_data = data[data["企业名称"] == selected_company]
         st.dataframe(filtered_data, use_container_width=True)
     else:
-        st.warning("数据中未包含「公司名称」列，无法使用公司筛选功能")
+        st.warning("数据中未包含「企业名称」列，无法使用企业筛选功能")
 
     # 数据统计示例
     st.subheader("📈 基础统计信息")
